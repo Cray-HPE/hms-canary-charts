@@ -1,0 +1,16 @@
+apiVersion: v2
+name: "cray-hms-test-development"
+version: 1.0.0
+description: "Kubernetes resources for cray-hms-test-development"
+home: https://github.com/Cray-HPE/hms-test-charts
+sources:
+  - https://github.com/Cray-HPE/hms-test
+maintainers:
+  - name: nieuwsma
+dependencies:
+  - name: cray-service
+    version: "~7.0.0"
+    repository: https://artifactory.algol60.net/artifactory/csm-helm-charts
+annotations:
+  artifacthub.io/license: MIT
+appVersion: 3.0.0

@@ -1,0 +1,38 @@
+---
+global:
+  appVersion: 3.0.0
+
+image:
+  repository: artifactory.algol60.net/csm-docker/stable/hms-test
+  pullPolicy: IfNotPresent
+
+schemaStorageClass: k8s-block-replicated #recommend to use this over ceph-cephfs-external
+schemaAccessMode: ReadWriteMany
+
+cray-service:
+  type: "Deployment"
+  nameOverride: "cray-hms-test-development"
+  fullnameOverride: "cray-hms-test-development"
+  serviceAccountName: "jobs-watcher"
+  replicaCount: 1
+  containers:
+    cray-hms-test-development:
+      name: "cray-hms-test-development"
+      image:
+        repository: artifactory.algol60.net/csm-docker/stable/hms-test
+        pullPolicy: IfNotPresent
+      command: ["sleep"]
+      args: ["100d"]
+      volumeMounts:
+        - mountPath: "/src/data"
+          name: data
+  volumes:
+    - name: data
+      persistentVolumeClaim:
+        claimName: cray-hms-test-development-pvc
+#      ports:
+#        - name: http
+#          containerPort: 8376
+#      env:
+#        - name: FOO
+#          value: "BAR"
