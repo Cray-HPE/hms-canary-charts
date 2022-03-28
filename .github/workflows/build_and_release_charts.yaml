@@ -5,5 +5,6 @@ jobs:
     uses: Cray-HPE/hms-build-chart-workflows/.github/workflows/build_and_release_charts.yaml@v1
     with:
       artifactory-component: cray-hms-test-development
+      target-branch: main
     secrets:
       jfrog-cli-configuration: ${{ secrets.ARTIFACTORY_ALGOL60_JFROG_CLI_CONFIGURATION }}
