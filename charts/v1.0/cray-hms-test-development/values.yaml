@@ -7,10 +7,11 @@ image:
   pullPolicy: IfNotPresent
 
 schemaStorageClass: k8s-block-replicated #recommend to use this over ceph-cephfs-external
-schemaAccessMode: ReadWriteMany
+schemaAccessMode: ReadWriteOnce #ReadWriteMany requires a clustered file system
 
 cray-service:
   type: "Deployment"
+  namespace: services
   nameOverride: "cray-hms-test-development"
   fullnameOverride: "cray-hms-test-development"
   affinity:
