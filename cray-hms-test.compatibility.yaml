@@ -2,30 +2,22 @@
 # CSM Version is not really following semver.
 chartVersionToCSMVersion:
   # Chart version: CSM version
-  ">=2.0.0": "~1.2.0" # Chart Version: 2.0.0 <= x.y.z, CSM Version: 1.2.0 <= x.y.z < 1.3.0
+  ">=1.0.0": "~1.3.0" # Chart Version: 2.0.0 <= x.y.z, CSM Version: 1.2.0 <= x.y.z < 1.3.0
 
 # The application version must be compliant to semantic versioning. 
 # If the application makes a backwards incompatible change, then its major version needs to be increment.
 # This is the idealized world
 chartVersionToApplicationVersion:
   # Chart version: Application version
-  "2.0.0": "1.11.0"
-  "2.0.1": "1.12.0"
-  "2.0.2": "1.13.0"
+  "1.0.0": "3.0.0"
+  "1.0.1": "3.2.0"
 
 # Test results for combinations of Chart, Application, and CSM versions.  
-chartValidationLog:
-- chartVersion: 2.0.0
-  applicationVersion: 1.11.0
-  csm: 1.2.0-alpha.16
-  environment: baremetal 
-  result: PASS 
-  tester: rsjostrand-hpe
-  date: 2021-11-17
-- chartVersion: 2.0.1-20211117222138+a343000b
-  applicationVersion: 1.12.0
-  csm: 1.2.0-alpha.16
-  environment: baremetal 
-  result: PASS 
-  tester: rsjostrand-hpe
-  date: 2021-11-17
+chartValidationLog: []
+#- chartVersion: 2.0.0
+#  applicationVersion: 1.11.0
+#  csm: 1.2.0-alpha.16
+#  environment: baremetal
+#  result: PASS
+#  tester: rsjostrand-hpe
+#  date: 2021-11-17
