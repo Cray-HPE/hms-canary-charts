@@ -1,1 +1,1 @@
-# hms-test-charts
+# hms-canary-charts
