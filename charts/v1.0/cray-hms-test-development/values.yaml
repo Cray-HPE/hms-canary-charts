@@ -1,5 +1,6 @@
 ---
 global:
+  
   appVersion: 3.2.0
 
 image:
