@@ -16,6 +16,6 @@ annotations:
   artifacthub.io/images: |
     - name: Image that does is ignored when linting
       image: dtr.dev.cray.com/foo:bar
-    - name: Image in a private repo 
+    - name: Image in a private repo
       image: artifactory.algol60.net/csm-docker-private/stable/csm-docker-sle-python:3.10
 appVersion: 3.2.0
