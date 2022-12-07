@@ -13,4 +13,7 @@ dependencies:
     repository: https://artifactory.algol60.net/artifactory/csm-helm-charts
 annotations:
   artifacthub.io/license: MIT
+  artifacthub.io/images: |
+    - name: foobar
+      image: dtr.dev.cray.com/foo:bar
 appVersion: 3.2.0
