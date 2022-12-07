@@ -20,8 +20,8 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 
-# HMS Build changed charts container image
-HMS_BUILD_IMAGE ?= hms-build-changed-charts-action:local 
+# HMS Build changed charts configuration
+HMS_BUILD_CHANGED_CHARTS_ACTION_BRANCH ?= CASMHMS-5597
 
 # Helm Chart
 TARGET_BRANCH ?= main
@@ -33,8 +33,9 @@ all-charts: vendor/hms-build-changed-charts-action
 
 vendor/hms-build-changed-charts-action:
 	mkdir -p vendor
-	git clone git@github.com:Cray-HPE/hms-build-changed-charts-action.git vendor/hms-build-changed-charts-action --branch CASMHMS-5597
+	git clone git@github.com:Cray-HPE/hms-build-changed-charts-action.git vendor/hms-build-changed-charts-action --branch ${HMS_BUILD_CHANGED_CHARTS_ACTION_BRANCH}
 
+	./vendor/hms-build-changed-charts-action/scripts/verify_build_environment.sh
 
 changed-charts: vendor/hms-build-changed-charts-action ct-config
 	./vendor/hms-build-changed-charts-action/scripts/build_changed_charts.sh ./charts ${TARGET_BRANCH}
