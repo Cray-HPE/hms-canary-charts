@@ -1,0 +1,5 @@
+---
+
+configMap:
+  name: cray-hms-canary-base
+  message: "Hello"
