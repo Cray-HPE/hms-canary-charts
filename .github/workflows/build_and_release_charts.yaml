@@ -11,6 +11,7 @@ jobs:
   build_and_release:
     uses: Cray-HPE/hms-build-chart-workflows/.github/workflows/build_and_release_charts.yaml@CASMHMS-5597
     with:
+      artifactory-repo: csm-helm-charts-private
       artifactory-component: cray-hms-test-development
       target-branch: main
     secrets: inherit
