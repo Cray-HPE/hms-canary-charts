@@ -1,4 +1,6 @@
 ---
+global:
+  appVersion: 3.2.0
 
 configMap:
   name: cray-hms-canary-base
