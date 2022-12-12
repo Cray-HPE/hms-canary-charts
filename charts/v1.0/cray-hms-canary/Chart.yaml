@@ -9,6 +9,9 @@ dependencies:
   - name: cray-hms-canary-base
     version: "1.0.0-20221209183818+133609a"
     repository: https://artifactory.algol60.net/artifactory/csm-helm-charts-private
+  - name: argo-workflows
+    version: 0.16.2
+    repository: https://argoproj.github.io/argo-helm
 maintainers:
   - name: rsjostrand-hpe
 annotations:
