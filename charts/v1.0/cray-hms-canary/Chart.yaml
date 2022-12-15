@@ -1,0 +1,25 @@
+apiVersion: v2
+name: "cray-hms-canary"
+version: 1.0.0
+description: "Kubernetes resources for cray-hms-canary. This chart is testing HMS build infrastructure"
+home: https://github.com/Cray-HPE/hms-test-charts
+sources:
+  - https://github.com/Cray-HPE/hms-test
+dependencies:
+  - name: cray-hms-canary-base
+    version: "1.0.0-20221209183818+133609a"
+    repository: https://artifactory.algol60.net/artifactory/csm-helm-charts-private
+  # Uncomment for a public chart
+  # - name: argo-workflows
+  #   version: 0.16.2
+  #   repository: https://argoproj.github.io/argo-helm
+maintainers:
+  - name: rsjostrand-hpe
+annotations:
+  artifacthub.io/license: MIT
+  artifacthub.io/images: |
+    - name: Image that does is ignored when linting
+      image: dtr.dev.cray.com/foo:bar
+    - name: Image in a private repo
+      image: artifactory.algol60.net/csm-docker-private/stable/csm-docker-sle-python:3.10
+appVersion: 3.2.0

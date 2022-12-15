@@ -6,8 +6,8 @@ image:
   repository: artifactory.algol60.net/csm-docker/stable/hms-test
   pullPolicy: IfNotPresent
 
-schemaStorageClass: k8s-block-replicated #recommend to use this over ceph-cephfs-external
-schemaAccessMode: ReadWriteOnce #ReadWriteMany requires a clustered file system
+schemaStorageClass: k8s-block-replicated  # Recommend to use this over ceph-cephfs-external
+schemaAccessMode: ReadWriteOnce  # ReadWriteMany requires a clustered file system
 
 cray-service:
   type: "Deployment"

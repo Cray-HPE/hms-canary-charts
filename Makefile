@@ -20,33 +20,34 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 
-# HMS Build changed charts container image
-HMS_BUILD_IMAGE ?= hms-build-changed-charts-action:local 
+# HMS Build changed charts configuration
+HMS_BUILD_CHANGED_CHARTS_ACTION_BRANCH ?= CASMHMS-5597
 
 # Helm Chart
 TARGET_BRANCH ?= main
 UNSTABLE_BUILD_SUFFIX ?= "" # If this variable is the empty string, then this is a stable build
 							# Otherwise, if this variable is non-empty then this is an unstable build
 
-all-charts:
-	docker run --rm -it -v $(shell pwd):/workspace ${HMS_BUILD_IMAGE} build_all_charts.sh ./charts
+all-charts: vendor/hms-build-changed-charts-action
+	./vendor/hms-build-changed-charts-action/scripts/build_all_charts.sh ./charts
 
-changed-charts: ct-config
-	# If the repo was cloned with SSH, then the docker container needs those credentails to interact with the 
-	# locally checkouted repo. TODO for now this is broken for not macOS. 
-	# The following works on macOS, assuming you have ran "ssh-add" to add your SSH identity to the SSH agent.
-	docker run --rm -it -v $(shell pwd):/workspace \
-		-v /run/host-services/ssh-auth.sock:/ssh-agent -e SSH_AUTH_SOCK=/ssh-agent \
-		${HMS_BUILD_IMAGE} build_changed_charts.sh ./charts ${TARGET_BRANCH}
+vendor/hms-build-changed-charts-action:
+	mkdir -p vendor
+	git clone git@github.com:Cray-HPE/hms-build-changed-charts-action.git vendor/hms-build-changed-charts-action --branch ${HMS_BUILD_CHANGED_CHARTS_ACTION_BRANCH}
 
-ct-config:
+	./vendor/hms-build-changed-charts-action/scripts/verify_build_environment.sh
+
+changed-charts: vendor/hms-build-changed-charts-action ct-config
+	./vendor/hms-build-changed-charts-action/scripts/build_changed_charts.sh ./charts ${TARGET_BRANCH}
+	
+ct-config: vendor/hms-build-changed-charts-action
 	git checkout -- ct.yaml
-	docker run --rm -v $(shell pwd):/workspace ${HMS_BUILD_IMAGE} update-ct-config-with-chart-dirs.sh charts
+	./vendor/hms-build-changed-charts-action/scripts/update-ct-config-with-chart-dirs.sh charts
 
-lint: ct-config
-	docker run --rm -it -v $(shell pwd):/workspace ${HMS_BUILD_IMAGE} ct lint --config ct.yaml
+lint: vendor/hms-build-changed-charts-action ct-config
+	ct lint --config ct.yaml
 
-clean:
+clean: vendor/hms-build-changed-charts-action
 	git checkout -- ct.yaml
-	docker run --rm -it -v $(shell pwd):/workspace ${HMS_BUILD_IMAGE} clean_all_charts.sh ./charts
+	./vendor/hms-build-changed-charts-action/scripts/clean_all_charts.sh ./charts
 	rm -rf .packaged

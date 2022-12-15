@@ -13,9 +13,12 @@
 
 # Helm
 .packaged
+Chart.lock
+*.tgz
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+vendor/hms-build-changed-charts-action/
 
 # VSCode
 .vscode
