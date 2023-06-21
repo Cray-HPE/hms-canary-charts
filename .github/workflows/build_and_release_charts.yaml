@@ -5,5 +5,9 @@ jobs:
     uses: Cray-HPE/hms-build-chart-workflows/.github/workflows/build_and_release_charts.yaml@CASMHMS-6042
     with:
       artifactory-component: cray-hms-canary
+      artifactory-repo: spc-helm-charts
+      additional-artifactory-repos: |
+        ["csm-helm-charts"]
+      artifactory-repo-ignore-add-failure: false
       target-branch: main
     secrets: inherit
