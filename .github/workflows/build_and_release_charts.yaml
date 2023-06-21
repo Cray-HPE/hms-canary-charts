@@ -6,7 +6,6 @@ jobs:
     with:
       artifactory-component: cray-hms-canary
       artifactory-repo: spc-helm-charts
-      artifactory-repo-ignore-add-failure: true
       additional-artifactory-repos: |
         ["csm-helm-charts"]
       target-branch: main
