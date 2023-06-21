@@ -2,7 +2,7 @@ name: Build and Publish Helm charts
 on: [push, pull_request, workflow_dispatch]
 jobs:
   build_and_release:
-    uses: Cray-HPE/hms-build-chart-workflows/.github/workflows/build_and_release_charts.yaml@v2
+    uses: Cray-HPE/hms-build-chart-workflows/.github/workflows/build_and_release_charts.yaml@CASMHMS-6042
     with:
       artifactory-component: cray-hms-canary
       target-branch: main

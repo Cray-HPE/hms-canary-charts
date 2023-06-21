@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 jobs:
   lint-test-scan:
-    uses: Cray-HPE/hms-build-chart-workflows/.github/workflows/charts_lint_test_scan.yaml@v2
+    uses: Cray-HPE/hms-build-chart-workflows/.github/workflows/charts_lint_test_scan.yaml@CASMHMS-6042
     with:
       lint-charts: ${{ github.event_name == 'pull_request' }}
       test-charts: false
