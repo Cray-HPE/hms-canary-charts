@@ -8,7 +8,7 @@ sources:
 dependencies:
   - name: cray-hms-canary-base
     version: "1.0.0-20221209183818+133609a"
-    repository: https://artifactory.algol60.net/artifactory/csm-helm-charts-private
+    repository: https://artifactory.algol60.net/artifactory/csm-helm-charts
   # Uncomment for a public chart
   # - name: argo-workflows
   #   version: 0.16.2
