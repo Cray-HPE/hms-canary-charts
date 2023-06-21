@@ -1,6 +1,6 @@
 apiVersion: v2
 name: "cray-hms-canary"
-version: 1.0.0
+version: 1.0.1
 description: "Kubernetes resources for cray-hms-canary. This chart is testing HMS build infrastructure"
 home: https://github.com/Cray-HPE/hms-test-charts
 sources:
