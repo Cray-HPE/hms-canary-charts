@@ -2,15 +2,14 @@ name: Lint, test, and scan Helm charts
 on:
   pull_request:
     branches:
-      - main
       - master
+      - main
       - release/**
   workflow_dispatch:
 jobs:
   lint-test-scan:
-    uses: Cray-HPE/hms-build-chart-workflows/.github/workflows/charts_lint_test_scan.yaml@CASMHMS-5597
+    uses: Cray-HPE/hms-build-chart-workflows/.github/workflows/charts_lint_test_scan.yaml@v2
     with:
-      artifactory-repo: csm-helm-charts-private
       lint-charts: ${{ github.event_name == 'pull_request' }}
       test-charts: false
       ct-yaml: ct.yaml

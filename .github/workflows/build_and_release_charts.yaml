@@ -1,18 +1,9 @@
 name: Build and Publish Helm charts
-on: 
-  push: {}
-  pull_request:
-    branches:
-      - main
-      - master
-      - release/**
-  workflow_dispatch: {}
+on: [push, pull_request, workflow_dispatch]
 jobs:
   build_and_release:
-    uses: Cray-HPE/hms-build-chart-workflows/.github/workflows/build_and_release_charts.yaml@CASMHMS-5597
+    uses: Cray-HPE/hms-build-chart-workflows/.github/workflows/build_and_release_charts.yaml@v2
     with:
-      artifactory-repo: csm-helm-charts-private
-      artifactory-component: cray-hms-test-development
+      artifactory-component: cray-hms-canary
       target-branch: main
     secrets: inherit
-
