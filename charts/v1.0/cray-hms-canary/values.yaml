@@ -5,3 +5,5 @@ global:
 configMap:
   name: cray-hms-canary
   message: "Hello world!"
+
+foo: foo
