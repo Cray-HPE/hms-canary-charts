@@ -521,7 +521,6 @@ make clean
 
 ## For More Information
 
-- [HMS Build System Overview](https://github.com/Cray-HPE/hms-architecture/blob/develop/build/HMS_Build_System_Overview.md) - High-level architecture documentation
 - [hms-build-chart-workflows README](https://github.com/Cray-HPE/hms-build-chart-workflows/blob/main/README.md) - Detailed workflow documentation
 - [hms-build-changed-charts-action README](https://github.com/Cray-HPE/hms-build-changed-charts-action/blob/main/README.md) - Chart action documentation
 - [hms-build-metadata-action README](https://github.com/Cray-HPE/hms-build-metadata-action/blob/main/README.md) - Metadata action documentation
