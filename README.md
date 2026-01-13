@@ -22,7 +22,6 @@ Use this repository to test changes to:
 - **hms-build-chart-workflows** - Chart build and release workflows
 - **hms-build-changed-charts-action** - Chart detection and building action
 - **hms-build-metadata-action** - Build metadata generation for charts
-- **hms-build-environment** - Base container image for builds (affects chart tooling)
 
 **Do not use this repository** for testing container image build workflows - use [hms-canary](https://github.com/Cray-HPE/hms-canary) instead.
 
@@ -209,33 +208,6 @@ When you have a change to the HMS chart build system that you want to test:
    ```
 
 4. **Push and test as described above**
-
-### Example: Testing Changes to hms-build-environment
-
-**Scenario:** You've updated the base build environment image and want to verify chart builds still work.
-
-1. **Create a test branch:**
-   ```bash
-   git checkout -b test/build-environment-update
-   ```
-
-2. **Update charts and workflows to trigger a test build:**
-   ```bash
-   # Update chart version to trigger build
-   sed -i 's/version: .*/version: 1.0.2/' charts/v1.0/cray-hms-canary/Chart.yaml
-   git add charts/v1.0/cray-hms-canary/Chart.yaml
-   git commit -m "test: trigger build with updated environment"
-   ```
-
-3. **Build locally to test:**
-   ```bash
-   make lint
-   make all-charts
-   ```
-
-4. **Fix any compatibility issues found**
-
-5. **Push and run full CI pipeline as described above**
 
 ## Working with Charts
 
