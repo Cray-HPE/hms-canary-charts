@@ -14,5 +14,5 @@ annotations:
     - name: Image that does is ignored when linting
       image: dtr.dev.cray.com/foo:bar
     - name: Image in a private repo
-      image: artifactory.algol60.net/csm-docker-private/stable/csm-docker-sle-python:3.13
+      image: artifactory.algol60.net/csm-docker/stable/csm-docker-sle-python:3.13
 appVersion: 3.2.0
