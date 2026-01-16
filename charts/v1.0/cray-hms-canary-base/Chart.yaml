@@ -7,11 +7,12 @@ sources:
   - https://github.com/Cray-HPE/hms-test
 maintainers:
   - name: rsjostrand-hpe
+  - name: keshav-06-hpe
 annotations:
   artifacthub.io/license: MIT
   artifacthub.io/images: |
     - name: Image that does is ignored when linting
       image: dtr.dev.cray.com/foo:bar
     - name: Image in a private repo
-      image: artifactory.algol60.net/csm-docker-private/stable/csm-docker-sle-python:3.10
+      image: artifactory.algol60.net/csm-docker-private/stable/csm-docker-sle-python:3.13
 appVersion: 3.2.0
